@@ -1,0 +1,53 @@
+{
+  "name": "rgstate",
+  "version": "0.0.1",
+  "description": "react global state hook as simple as possible",
+  "main": "lib/index.ts",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"lib/**/*.ts\" \"lib/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleweichandt/react-global-state-hook.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "global",
+    "state"
+  ],
+  "author": "Alejandro Weichandt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleweichandt/react-global-state-hook/issues"
+  },
+  "homepage": "https://github.com/aleweichandt/react-global-state-hook#readme",
+  "peerDependencies": {
+    "react": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/jest": "^25.2.2",
+    "@types/react": "^16.9.35",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "ts-jest": "^26.0.0",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.2"
+  }
+}
