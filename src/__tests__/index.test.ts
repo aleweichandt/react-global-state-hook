@@ -34,14 +34,14 @@ describe('RGState test suite', () => {
   describe('numeric state type', () => {
     it('when start as undefined then initial state is undefined', () => {
       // when
-      const useState = createGState<number | undefined>(undefined);
+      const useState = createGState<number>(undefined);
       const [getCounter] = mockRender(useState)
       // then
       expect(getCounter()).toBeUndefined()
     })
     it('when update from undefined then allows state of type', () => {
       // given
-      const useState = createGState<number | undefined>(undefined);
+      const useState = createGState<number>(undefined);
       const [getCounter, setCounter] = mockRender(useState)
       // when
       setCounter(0)
@@ -50,7 +50,7 @@ describe('RGState test suite', () => {
     })
     it('when update to undefined then allows undefined state', () => {
       // given
-      const useState = createGState<number | undefined>(0);
+      const useState = createGState<number>(0);
       const [getCounter, setCounter] = mockRender(useState)
       // when
       setCounter(undefined)
@@ -62,14 +62,14 @@ describe('RGState test suite', () => {
   describe('string state type', () => {
     it('when start as undefined then initial state is undefined', () => {
       // when
-      const useState = createGState<string | undefined>(undefined);
+      const useState = createGState<string>(undefined);
       const [getCounter] = mockRender(useState)
       // then
       expect(getCounter()).toBeUndefined()
     });
     it('when update from undefined then allows state of type', () => {
       // given
-      const useState = createGState<string | undefined>(undefined);
+      const useState = createGState<string>(undefined);
       const [getCounter, setCounter] = mockRender(useState)
       // when
       setCounter("test")
@@ -78,7 +78,7 @@ describe('RGState test suite', () => {
     });
     it('when update to undefined then allows undefined state', () => {
       // given
-      const useState = createGState<string | undefined>("test");
+      const useState = createGState<string>("test");
       const [getCounter, setCounter] = mockRender(useState)
       // when
       setCounter(undefined)
@@ -90,14 +90,14 @@ describe('RGState test suite', () => {
   describe('object state type', () => {
     it('when start as undefined then initial state is undefined', () => {
       // when
-      const useState = createGState<{ test : number} | undefined>(undefined);
+      const useState = createGState<{ test : number}>(undefined);
       const [getCounter] = mockRender(useState)
       // then
       expect(getCounter()).toBeUndefined()
     });
     it('when update from undefined then allows state of type', () => {
       // given
-      const useState = createGState<{ test : number} | undefined>(undefined);
+      const useState = createGState<{ test : number}>(undefined);
       const [getCounter, setCounter] = mockRender(useState)
       // when
       setCounter({ test: 0 })
@@ -106,7 +106,7 @@ describe('RGState test suite', () => {
     });
     it('when update to undefined then allows undefined state', () => {
       // given
-      const useState = createGState<{ test : number} | undefined>({ test: 0 });
+      const useState = createGState<{ test : number}>({ test: 0 });
       const [getCounter, setCounter] = mockRender(useState)
       // when
       setCounter(undefined)
@@ -118,14 +118,14 @@ describe('RGState test suite', () => {
   describe('array state type', () => {
     it('when start as undefined then initial state is undefined', () => {
       // when
-      const useState = createGState<number[] | undefined>(undefined);
+      const useState = createGState<number[]>(undefined);
       const [getCounter] = mockRender(useState)
       // then
       expect(getCounter()).toBeUndefined()
     });
     it('when update from undefined then allows state of type', () => {
       // given
-      const useState = createGState<number[] | undefined>(undefined);
+      const useState = createGState<number[]>(undefined);
       const [getCounter, setCounter] = mockRender(useState)
       // when
       setCounter([0])
@@ -134,7 +134,7 @@ describe('RGState test suite', () => {
     });
     it('when update to undefined then allows undefined state', () => {
       // given
-      const useState = createGState<number[] | undefined>([0]);
+      const useState = createGState<number[]>([0]);
       const [getCounter, setCounter] = mockRender(useState)
       // when
       setCounter(undefined)

@@ -8,7 +8,7 @@ const createGState = <S = undefined>(initialState: S) => {
   const setters: Dispatch<SetStateAction<S | undefined>>[] = [];
 
   // Global state hook
-  const useGlobalState: UseGState<S> = () => {
+  const useGlobalState: UseGState<S | undefined> = () => {
     // create react state manager
     const [globalState, setState] = useState(innerState);
 

@@ -1,6 +1,6 @@
-# RGState
+# Mate State
 
-React global state hook made as simple as possible.
+Mate State is just global state hook made as simple as possible.
 
 This library allows to share a `useState` hook across several components.
 
@@ -9,7 +9,7 @@ This library allows to share a `useState` hook across several components.
 ## Install
 
 ```shell
-npm i -s rgstate
+npm i -s mate-state
 ```
 
 ## Minimal example:

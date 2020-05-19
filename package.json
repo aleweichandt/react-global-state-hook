@@ -1,5 +1,5 @@
 {
-  "name": "rgstate",
+  "name": "mate-state",
   "version": "0.0.1",
   "description": "react global state hook as simple as possible",
   "main": "lib/index.ts",
@@ -25,7 +25,8 @@
     "hooks",
     "global",
     "state",
-    "microfrontend"
+    "microfrontend",
+    "mate"
   ],
   "author": "Alejandro Weichandt",
   "license": "ISC",
