@@ -1,8 +1,8 @@
 {
   "name": "mate-state",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react global state hook as simple as possible",
-  "main": "lib/index.ts",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib/**/*"
