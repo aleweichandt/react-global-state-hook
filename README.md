@@ -18,11 +18,7 @@ npm i -s rgstate
 import React from 'react';
 import createGState from 'rgstate';
 
-const globalCounterState = {
-  counter: 0,
-};
-
-const useGlobalCounter = createGState(globalCounterState);
+const useGlobalCounter = createGState(0);
 
 const App = () => {
   const [counter, setCounter] = useGlobalCounter();
@@ -32,7 +28,7 @@ const App = () => {
         counter:
         {counter}
       </p>
-      <button type="button" onClick={() => setCounter({ counter: counter + 1 })}>
+      <button type="button" onClick={() => setCounter((c) => c + 1)}>
         +1 to global
       </button>
     </div>
@@ -41,3 +37,30 @@ const App = () => {
 
 export default App;
 ```
+
+---
+
+## Usage
+
+First step is to create your global state.
+
+```javascript
+const useState = createGState();
+```
+
+After created, all you need is to use it as with React `useState` hook. Same interface is supported
+
+```javascript
+import useState from "my-global-state-path"
+
+...
+const [state, setState] = useState()
+```
+
+---
+
+## Benefits
+
+* Comes with typescript support ++
+* Built with react hooks only. No magic here ++
+* Proved to work with multiple react instances (microforntends) across same env ++

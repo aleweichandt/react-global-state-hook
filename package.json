@@ -8,14 +8,12 @@
     "lib/**/*"
   ],
   "scripts": {
-    "test": "jest --config jestconfig.json",
-    "build": "tsc",
+    "test": "npm run jest && npm run lint",
+    "jest": "jest --config jestconfig.json ./src",
     "format": "prettier --write \"lib/**/*.ts\" \"lib/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
+    "build": "tsc && npm run format",
+    "version": "npm test && npm run build && git add -A src",
     "postversion": "git push && git push --tags"
   },
   "repository": {
@@ -26,7 +24,8 @@
     "react",
     "hooks",
     "global",
-    "state"
+    "state",
+    "microfrontend"
   ],
   "author": "Alejandro Weichandt",
   "license": "ISC",
