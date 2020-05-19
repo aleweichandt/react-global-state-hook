@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState, useEffect, useCallback } from 'reac
 
 export type UseGState<S = undefined> = () => [S | undefined, Dispatch<SetStateAction<S | undefined>>];
 
-const createGState = <S = undefined>(initialState: S) => {
+const createGState = <S = undefined>(initialState: S | undefined) => {
   // Global Shared State
   let innerState: S | undefined = initialState;
   const setters: Dispatch<SetStateAction<S | undefined>>[] = [];
