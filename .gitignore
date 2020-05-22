@@ -1,5 +1,8 @@
 node_modules/
 lib/
+coverage/
+
+.coveralls.yml
 
 .DS_Store
 **/.DS_Store

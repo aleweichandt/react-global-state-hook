@@ -1,4 +1,5 @@
-# Mate State
+[![NPM version][npm-image]][npm-url] [![build status][travis-image]][travis-url] [![Test coverage][coveralls-image]][coveralls-url]
+# Mate State 
 
 Mate State is just global state hook made as simple as possible.
 
@@ -112,6 +113,7 @@ First step is to create your global reducer.
 
 ```javascript
 import { reducer, initialState } from "my-reducer-logic-path"
+
 const useCounterReducer = createGlobalReducer(reducer, initialState);
 ```
 
@@ -131,3 +133,10 @@ const [state, dispatch] = useReducer()
 * Comes with typescript support ++
 * Built with react hooks only. No magic here ++
 * Proved to work with multiple react instances (microforntends) across same env ++
+
+[npm-image]: https://img.shields.io/npm/v/mate-state.svg
+[npm-url]: https://www.npmjs.com/package/mate-state
+[travis-image]: https://img.shields.io/travis/aleweichandt/react-global-state-hook.svg
+[travis-url]: https://travis-ci.org/aleweichandt/react-global-state-hook
+[coveralls-image]: https://coveralls.io/repos/github/aleweichandt/react-global-state-hook/badge.svg
+[coveralls-url]: https://coveralls.io/github/aleweichandt/react-global-state-hook?branch=master

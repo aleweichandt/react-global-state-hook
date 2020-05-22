@@ -1,6 +1,6 @@
 {
   "name": "mate-state",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "react global state hook as simple as possible",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,6 +9,9 @@
   ],
   "scripts": {
     "test": "npm run lint && npm run jest",
+    "test:ci": "npm run lint && npm run coverage:test && npm run coverage:report",
+    "coverage:test": "jest --config jestconfig.json --coverage",
+    "coverage:report": "cat ./coverage/lcov.info | coveralls",
     "jest": "jest --config jestconfig.json",
     "format": "prettier --write \"lib/**/*.ts\" \"lib/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
@@ -41,6 +44,7 @@
     "@testing-library/react-hooks": "^3.2.1",
     "@types/jest": "^25.2.2",
     "@types/react": "^16.9.35",
+    "coveralls": "^3.1.0",
     "jest": "^26.0.1",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
