@@ -1,6 +1,6 @@
 {
   "name": "mate-state",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "react global state hook as simple as possible",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -8,8 +8,8 @@
     "lib/**/*"
   ],
   "scripts": {
-    "test": "npm run jest && npm run lint",
-    "jest": "jest --config jestconfig.json ./src",
+    "test": "npm run lint && npm run jest",
+    "jest": "jest --config jestconfig.json",
     "format": "prettier --write \"lib/**/*.ts\" \"lib/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "build": "tsc && npm run format",

@@ -1,9 +1,9 @@
 import { renderHook, act } from '@testing-library/react-hooks'
-import createGState, { UseGState } from '../index'
+import createGState, { UseGlobalStateHook } from '../createGlobalState'
 import { Dispatch, SetStateAction } from 'react';
 
 describe('RGState test suite', () => {
-  const mockRender = <S>(hook: UseGState<S>): [() => S | undefined, Dispatch<SetStateAction<S | undefined>>] => {
+  const mockRender = <S>(hook: UseGlobalStateHook<S>): [() => S | undefined, Dispatch<SetStateAction<S | undefined>>] => {
     const { result } = renderHook(() => hook())
     const [_, setter] = result.current
     const getter = () => result.current[0]
@@ -16,7 +16,7 @@ describe('RGState test suite', () => {
       const useState = createGState<number>(0);
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter(1)
+      act(() => setCounter(1))
       // then
       expect(getCounter()).toEqual(1)
     })
@@ -25,7 +25,7 @@ describe('RGState test suite', () => {
       const useState = createGState<number>(0);
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter((s = 0) => s + 1)
+      act(() => setCounter((s = 0) => s + 1))
       // then
       expect(getCounter()).toEqual(1)
     })
@@ -44,7 +44,7 @@ describe('RGState test suite', () => {
       const useState = createGState<number>(undefined);
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter(0)
+      act(() => setCounter(0))
       // then
       expect(getCounter()).toEqual(0)
     })
@@ -53,7 +53,7 @@ describe('RGState test suite', () => {
       const useState = createGState<number>(0);
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter(undefined)
+      act(() => setCounter(undefined))
       // then
       expect(getCounter()).toBeUndefined()
     })
@@ -72,7 +72,7 @@ describe('RGState test suite', () => {
       const useState = createGState<string>(undefined);
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter("test")
+      act(() => setCounter("test"))
       // then
       expect(getCounter()).toEqual("test")
     });
@@ -81,7 +81,7 @@ describe('RGState test suite', () => {
       const useState = createGState<string>("test");
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter(undefined)
+      act(() => setCounter(undefined))
       // then
       expect(getCounter()).toBeUndefined()
     });
@@ -100,7 +100,7 @@ describe('RGState test suite', () => {
       const useState = createGState<{ test : number}>(undefined);
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter({ test: 0 })
+      act(() => setCounter({ test: 0 }))
       // then
       expect(getCounter()).toEqual({ test: 0 })
     });
@@ -109,7 +109,7 @@ describe('RGState test suite', () => {
       const useState = createGState<{ test : number}>({ test: 0 });
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter(undefined)
+      act(() => setCounter(undefined))
       // then
       expect(getCounter()).toBeUndefined()
     });
@@ -128,7 +128,7 @@ describe('RGState test suite', () => {
       const useState = createGState<number[]>(undefined);
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter([0])
+      act(() => setCounter([0]))
       // then
       expect(getCounter()).toEqual([0])
     });
@@ -137,7 +137,7 @@ describe('RGState test suite', () => {
       const useState = createGState<number[]>([0]);
       const [getCounter, setCounter] = mockRender(useState)
       // when
-      setCounter(undefined)
+      act(() => setCounter(undefined))
       // then
       expect(getCounter()).toBeUndefined()
     });
@@ -235,7 +235,7 @@ describe('RGState test suite', () => {
     it('when someone updates and someother updates state then all enders update twice ordered', () => {
       // given
       const useState = createGState(0);
-      const [get1, set1] = mockRender(useState)
+      const [get1] = mockRender(useState)
       const [get2, set2] = mockRender(useState)
       const [get3, set3] = mockRender(useState)
       // update 1
